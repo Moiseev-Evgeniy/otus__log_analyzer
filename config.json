@@ -1,0 +1,8 @@
+{
+    "REPORT_SIZE": 5,
+    "REPORT_DIR": "reports",
+    "LOG_DIR": "logs",
+    "SELF_LOG_DIR": "logs",
+    "TEMPLATES_DIR": "templates",
+    "ERROR_THRESHOLD": 0.5
+}
