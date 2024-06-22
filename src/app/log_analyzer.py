@@ -4,14 +4,14 @@
 #                     '$request_time';
 
 
+import gzip
 import json
+import re
+from datetime import datetime
+from os import listdir
 from pathlib import Path
 from statistics import median
-from os import listdir
-import gzip
-from datetime import datetime
 from string import Template
-import re
 
 from structlog import getLogger
 

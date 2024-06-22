@@ -8,8 +8,8 @@ from pathlib import Path
 import pytest
 
 from log_analyzer import config
-from src.app.log_analyzer import make_report, create_report_file, update_config, main
-from tests.testdata import make_report_data, create_report_file_data, main_data
+from src.app.log_analyzer import create_report_file, main, make_report, update_config
+from tests.testdata import create_report_file_data, main_data, make_report_data
 
 
 @pytest.mark.parametrize("file_name, logs, expected_output", make_report_data())

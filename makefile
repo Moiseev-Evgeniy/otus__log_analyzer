@@ -18,3 +18,9 @@ lint-fix:
 
 lint-format:
 	ruff format
+
+lint-sort:
+	ruff check --select I
+
+lint-sort-fix:
+	ruff check --select I --fix
