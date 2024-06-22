@@ -16,3 +16,5 @@ lint:
 lint-fix:
 	ruff check --fix
 
+lint-format:
+	ruff format

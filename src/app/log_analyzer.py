@@ -1,6 +1,6 @@
 # log_format ui_short '$remote_addr  $remote_user $http_x_real_ip [$time_local] "$request" '
 #                     '$status $body_bytes_sent "$http_referer" '
-#                     '"$http_user_agent" "$http_x_forwarded_for" "$http_X_REQUEST_ID" "$http_X_RB_USER" '  
+#                     '"$http_user_agent" "$http_x_forwarded_for" "$http_X_REQUEST_ID" "$http_X_RB_USER" '
 #                     '$request_time';
 
 
@@ -97,9 +97,8 @@ def make_report(config: dict, file_name: str) -> list[dict] | None:
         )
         return
 
-    parsing_result = sorted(
-        parsing_result.items(), key=lambda x: x[1]["time_sum"], reverse=True
-    )[:config["REPORT_SIZE"]]
+    parsing_result = sorted(parsing_result.items(), key=lambda x: x[1]["time_sum"], reverse=True)
+    parsing_result = parsing_result[:config["REPORT_SIZE"]]
 
     result = []
     digits_num = 3
@@ -130,14 +129,13 @@ def create_report_file(config: dict, file_date: str, reporting_data: list[dict])
 
     with (
         open(ROOT_DIR / config["TEMPLATES_DIR"] / "report.html", "r", encoding="utf-8") as temp_file,
-        open(ROOT_DIR / config["REPORT_DIR"] / f"report-{file_date}.html", "w", encoding="utf-8") as rep_file
+        open(ROOT_DIR / config["REPORT_DIR"] / f"report-{file_date}.html", "w", encoding="utf-8") as rep_file,
     ):
         template = Template(temp_file.read())
         rep_file.write(template.safe_substitute(table_json=json.dumps(reporting_data)))
 
 
 def main(config: dict):
-
     file_names = [
         name for name in listdir(ROOT_DIR / config["LOG_DIR"])
         if re.match(rf"{log_file_name_prefix.replace(".", r"\.")}\d{{8}}(\.gz|$)$", name)
