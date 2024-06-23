@@ -2,11 +2,13 @@ logs/*
 !logs/.gitkeep
 
 **/__pycache__
+.mypy_cache
+.pytest_cache
+.ruff_cache
 
 .vscode
 .DS_Store
 .idea
-.ruff_cache
 .python-version
 
 .env

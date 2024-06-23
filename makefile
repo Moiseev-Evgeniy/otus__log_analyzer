@@ -27,7 +27,7 @@ lint-isort-fix:
 
 lint-base:
 	ruff check --fix
-	ruff check --select I
+	ruff check --select I --fix
 
 check-hints:
 	mypy .
