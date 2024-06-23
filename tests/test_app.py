@@ -1,4 +1,5 @@
 """Tests for application functions."""
+
 import json
 from datetime import datetime
 from os import remove
@@ -11,10 +12,7 @@ from src.app.log_analyzer import create_report_file, main, make_report, update_c
 from tests.testdata import create_report_file_data, main_data, make_report_data
 
 
-@pytest.mark.parametrize(
-    "file_name, logs, expected_output",
-    make_report_data()
-)
+@pytest.mark.parametrize("file_name, logs, expected_output", make_report_data())
 def test_make_report(file_name: str, logs: str, expected_output: list):
     full_path = f"./logs/{file_name}"
     with open(full_path, "w", encoding="utf-8") as file:
