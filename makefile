@@ -31,3 +31,9 @@ lint-base:
 
 check-hints:
 	mypy .
+
+dc-up:
+	docker compose up -d --build
+
+dc-down:
+	docker compose down -v
