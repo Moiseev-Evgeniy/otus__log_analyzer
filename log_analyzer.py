@@ -16,7 +16,7 @@ config = {
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", default="src/app/config.json", help="path from root dir to config file")
+    parser.add_argument("--config", default="src/app/template.config.json", help="path from root dir to config file")
     args = parser.parse_args()
 
     update_config(config, args.config)

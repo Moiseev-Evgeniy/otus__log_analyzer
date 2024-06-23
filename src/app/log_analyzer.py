@@ -47,7 +47,7 @@ def update_config(config: dict, external_config_path: str) -> None:
 
     external_config_path = ROOT_DIR / external_config_path
 
-    if not external_config_path.exists() or not external_config_path.is_file():
+    if not external_config_path.is_file():
         raise FileNotFoundError("Config file not found.")
 
     with open(external_config_path, "r", encoding="utf-8") as conf_file:
