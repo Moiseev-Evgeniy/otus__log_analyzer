@@ -19,7 +19,10 @@ if __name__ == "__main__":
     parser.add_argument("--config", default="src/app/template.config.json", help="path from root dir to config file")
     args = parser.parse_args()
 
-    update_config(config, args.config)
+    update_config(
+        config,
+        args.config
+    )
 
     try:
         main(config)
