@@ -8,18 +8,18 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout code
-      #   uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Update python
         run: sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.12
       - name: Set python default version
-        run: sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1 && sudo update-alternatives --set python /usr/bin/python3.12 && python -V
-      # - name: Install poetry
-      #   run: pip install poetry==1.7.1
-      # - name: Install deps
-      #   run: poetry config virtualenvs.create false && poetry install
-      # - name: Ruff check
-      #   run: ruff check && ruff check --select I
-      # - name: Run tests
-      #   run: pytest .
+        run: sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1 && sudo update-alternatives --set python /usr/bin/python3.12
+      - name: Install poetry
+        run: pip install poetry==1.7.1
+      - name: Install deps
+        run: poetry config virtualenvs.create false && poetry install
+      - name: Ruff check
+        run: ruff check && ruff check --select I
+      - name: Run tests
+        run: pytest .
 
