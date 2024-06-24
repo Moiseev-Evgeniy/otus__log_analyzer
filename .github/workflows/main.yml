@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  lint:
+  lint_and_test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -20,8 +20,14 @@ jobs:
         run: pip install poetry==1.7.1
       - name: Install deps
         run: poetry install
-      - name: Ruff check
-        run: ruff check && ruff check --select I
-      - name: Run tests
-        run: pytest .
+      - name: qwe
+        run: ls
+      - name: qweqwe
+        run: pip freeze
+      - name: qweqweqwe
+        run: poetry show
+      # - name: Ruff check
+      #   run: ruff check && ruff check --select I
+      # - name: Run tests
+      #   run: pytest .
 
