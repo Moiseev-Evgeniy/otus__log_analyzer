@@ -10,8 +10,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Update os
-        run: sudo apt update && sudo apt upgrade -y
+      - name: Update python
+        run: sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.12
       - name: Install poetry
         run: pip install poetry==1.7.1
       - name: Install deps
