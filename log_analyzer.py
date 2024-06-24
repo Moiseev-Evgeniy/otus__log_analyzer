@@ -21,6 +21,7 @@ if __name__ == "__main__":
 
     update_config(config, args.config)
 
-    try: main(config)
+    try:
+        main(config)
     except Exception:
         event_logging(config, "Unexpected error", "error", format_exc_info(None, None, {"exc_info": True}))
