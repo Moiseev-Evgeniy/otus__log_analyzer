@@ -12,28 +12,13 @@ jobs:
         uses: actions/checkout@v4
       - name: Update python
         run: sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.12
-      # - name: Set python default version
-      #   run: sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1 && sudo update-alternatives --set python /usr/bin/python3.12
-      # - name: Upgrade pip
-      #   run: pip install --upgrade pip 
       - name: Install poetry
         run: pip install poetry==1.7.1
-      # - name: Config poetry
-      #   run: poetry config virtualenvs.in-project true
       - name: Install deps
         run: poetry install
-      # - name: asd
-      #   run: poetry shell
-      # - name: qwe
-      #   run: ls
-      # - name: qweqwe
-      #   run: pip freeze
-      # - name: qweqweqwe
-      #   run: poetry show
       - name: Ruff check
         run: |
           poetry run ruff check
           poetry run ruff check --select I
       - name: Run tests
         run: poetry run pytest .
-
