@@ -1,8 +1,8 @@
 import argparse
+from src.app.log_analyzer import event_logging, main, update_config
 
 from structlog.processors import format_exc_info
 
-from src.app.log_analyzer import event_logging, main, update_config
 
 config = {
     "REPORT_SIZE": 1000,
@@ -21,7 +21,6 @@ if __name__ == "__main__":
 
     update_config(config, args.config)
 
-    try:
-        main(config)
+    try: main(config)
     except Exception:
         event_logging(config, "Unexpected error", "error", format_exc_info(None, None, {"exc_info": True}))
