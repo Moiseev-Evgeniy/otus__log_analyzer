@@ -1,0 +1,21 @@
+name: Check-on-merge
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Ruff check
+        run: ruff check && ruff check --select I
+
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        run: pytest .
