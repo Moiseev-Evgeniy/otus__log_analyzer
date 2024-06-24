@@ -18,10 +18,12 @@ jobs:
       #   run: pip install --upgrade pip 
       - name: Install poetry
         run: pip install poetry==1.7.1
+      - name: Config poetry
+        run: poetry config virtualenvs.in-project true
       - name: Install deps
         run: poetry install
-      - name: asd
-        run: poetry env info --path
+      # - name: asd
+      #   run: poetry env info --path
       - name: qwe
         run: ls
       - name: qweqwe
