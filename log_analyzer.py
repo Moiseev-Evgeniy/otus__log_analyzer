@@ -1,8 +1,8 @@
 import argparse
-from src.app.log_analyzer import event_logging, main, update_config
 
 from structlog.processors import format_exc_info
 
+from src.app.log_analyzer import event_logging, main, update_config
 
 config = {
     "REPORT_SIZE": 1000,
