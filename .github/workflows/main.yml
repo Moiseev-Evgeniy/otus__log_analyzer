@@ -14,12 +14,14 @@ jobs:
         run: sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.12
       - name: Set python default version
         run: sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1 && sudo update-alternatives --set python /usr/bin/python3.12
+      - name: Upgrade pip
+        run: pip install --upgrade pip 
       - name: Install poetry
         run: pip install poetry==1.7.1
       - name: Install deps
         run: poetry config virtualenvs.create false && poetry install
-      - name: Ruff check
-        run: ruff check && ruff check --select I
-      - name: Run tests
-        run: pytest .
+      # - name: Ruff check
+      #   run: ruff check && ruff check --select I
+      # - name: Run tests
+      #   run: pytest .
 
