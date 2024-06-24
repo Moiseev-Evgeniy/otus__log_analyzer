@@ -19,7 +19,7 @@ jobs:
       - name: Install poetry
         run: pip install poetry==1.7.1
       - name: Install deps
-        run: poetry config virtualenvs.create false && poetry install --no-interaction --no-root
+        run: poetry install
       # - name: Ruff check
       #   run: ruff check && ruff check --select I
       # - name: Run tests
