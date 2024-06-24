@@ -8,10 +8,10 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      # - name: Checkout code
+      #   uses: actions/checkout@v4
       - name: Update python
-        run: sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.12 && python3.12 -V
+        run: sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.12 && sudo update-alternatives --set python /usr/bin/python3.12 && python -V
       # - name: Install poetry
       #   run: pip install poetry==1.7.1
       # - name: Install deps
