@@ -21,7 +21,7 @@ jobs:
       - name: Install deps
         run: poetry install
       - name: asd
-        run: source $(poetry env info --path)/bin/activate
+        run: poetry env info --path
       - name: qwe
         run: ls
       - name: qweqwe
