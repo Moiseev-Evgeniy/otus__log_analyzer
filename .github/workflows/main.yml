@@ -22,16 +22,18 @@ jobs:
       #   run: poetry config virtualenvs.in-project true
       - name: Install deps
         run: poetry install
-      - name: asd
-        run: poetry shell
-      - name: qwe
-        run: ls
-      - name: qweqwe
-        run: pip freeze
-      - name: qweqweqwe
-        run: poetry show
-      # - name: Ruff check
-      #   run: ruff check && ruff check --select I
-      # - name: Run tests
-      #   run: pytest .
+      # - name: asd
+      #   run: poetry shell
+      # - name: qwe
+      #   run: ls
+      # - name: qweqwe
+      #   run: pip freeze
+      # - name: qweqweqwe
+      #   run: poetry show
+      - name: Ruff check
+        run: |
+          poetry run ruff check
+          poetry run ruff check --select I
+      - name: Run tests
+        run: poetry run pytest .
 
